@@ -2,6 +2,15 @@ const http = require('http');
 const server = new http.Server();
 const handler = require('./handler');
 
+/*
+1. core_modules/handler
+2. ./node_modules/handler
+   ../node_modules/handler
+   ../../node_modules/handler
+3. NODE_PATH=. node server.js
+   set NODE_PATH=. && node server.js
+*/
+
 server.on('request', handler);
 
 const emit = server.emit;
